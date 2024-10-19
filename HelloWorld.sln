@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{3A47FA7A-3B63-44E5-9507-F24FFC853A44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorld.Resources", "HelloWorld.Resources\HelloWorld.Resources.csproj", "{ED394C8E-608D-4A57-81C9-FAE2F478FDF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorld.Controls", "HelloWorld.Controls\HelloWorld.Controls.csproj", "{7F8B5A91-5D20-44E6-B800-C825D1D108EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5EB64429-C2D9-409E-B9EE-371D738811DC}"
+	ProjectSection(SolutionItems) = preProject
+		Resources.Designer.t4 = Resources.Designer.t4
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Localization", "Localization\Localization.csproj", "{D7D75AFD-178C-4F13-A9D6-B6683A360126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Drivers", "HelloWorld.Drivers\HelloWorld.Drivers.csproj", "{A2FA70E0-0F5C-4598-B8EB-95B6EB81A25C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Models", "HelloWorld.Models\HelloWorld.Models.csproj", "{12E185BE-4176-4874-9D46-71BF9B59E66B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A47FA7A-3B63-44E5-9507-F24FFC853A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A47FA7A-3B63-44E5-9507-F24FFC853A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A47FA7A-3B63-44E5-9507-F24FFC853A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A47FA7A-3B63-44E5-9507-F24FFC853A44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED394C8E-608D-4A57-81C9-FAE2F478FDF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED394C8E-608D-4A57-81C9-FAE2F478FDF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED394C8E-608D-4A57-81C9-FAE2F478FDF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED394C8E-608D-4A57-81C9-FAE2F478FDF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F8B5A91-5D20-44E6-B800-C825D1D108EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F8B5A91-5D20-44E6-B800-C825D1D108EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F8B5A91-5D20-44E6-B800-C825D1D108EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F8B5A91-5D20-44E6-B800-C825D1D108EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D75AFD-178C-4F13-A9D6-B6683A360126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D75AFD-178C-4F13-A9D6-B6683A360126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D75AFD-178C-4F13-A9D6-B6683A360126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D75AFD-178C-4F13-A9D6-B6683A360126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FA70E0-0F5C-4598-B8EB-95B6EB81A25C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FA70E0-0F5C-4598-B8EB-95B6EB81A25C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FA70E0-0F5C-4598-B8EB-95B6EB81A25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FA70E0-0F5C-4598-B8EB-95B6EB81A25C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E185BE-4176-4874-9D46-71BF9B59E66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E185BE-4176-4874-9D46-71BF9B59E66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E185BE-4176-4874-9D46-71BF9B59E66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E185BE-4176-4874-9D46-71BF9B59E66B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {118300AE-3D0A-450E-8AB1-E7C664374F0A}
+	EndGlobalSection
+EndGlobal

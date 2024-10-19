@@ -1,0 +1,15 @@
+﻿<Window x:Class="HelloWorld.Windows.Log4netWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloWorld.Windows"
+        xmlns:control="clr-namespace:HelloWorld.Controls;assembly=HelloWorld.Controls"
+        xmlns:language="clr-namespace:HelloWorld.Resources.Languages;assembly=HelloWorld.Resources"
+        mc:Ignorable="d"
+        Height="450" Width="800"
+        Title="{Binding Path=Logs, Source={x:Static language:I18nMenu.Instance}}">
+    <Grid>
+        <control:Log4netBox x:Name="LogsBox" Appender="Log4netBox" />
+    </Grid>
+</Window>

@@ -1,0 +1,14 @@
+﻿<ListBox x:Class="HelloWorld.Controls.Log4netBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HelloWorld.Controls"
+             xmlns:appender="clr-namespace:HelloWorld.Controls.Log4net.Appender"
+             mc:Ignorable="d"
+         VerticalContentAlignment="Center"
+         VirtualizingStackPanel.VirtualizationMode="Recycling"
+         ItemsSource="{Binding Path=Logs, RelativeSource={RelativeSource Self}}"
+         MouseDoubleClick="ListBox_MouseDoubleClick">
+    
+</ListBox>

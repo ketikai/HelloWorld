@@ -1,0 +1,120 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HelloWorld.Models\HelloWorld.Models.csproj" />
+    <ProjectReference Include="..\Localization\Localization.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Languages\I18nLocale.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>I18nLocale.Designer.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Languages\I18nMainWindow.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>I18nMainWindow.Designer.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Languages\I18nMenu.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>I18nMenu.Designer.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Languages\I18nMessageBox.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>I18nMessageBox.Designer.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Languages\I18nNotification.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>I18nNotification.Designer.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Languages\I18nServerWindow.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>I18nServerWindow.Designer.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Languages\I18nSystemTray.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>I18nSystemTray.Designer.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Languages\I18nLocale.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Languages\I18nMainWindow.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Languages\I18nMenu.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Languages\I18nMessageBox.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Languages\I18nNotification.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Languages\I18nServerWindow.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Languages\I18nSystemTray.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Languages\I18nLocale.Designer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>I18nLocale.resx</DependentUpon>
+      <LastGenOutput>I18nLocale.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Languages\I18nMainWindow.Designer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>I18nMainWindow.resx</DependentUpon>
+      <LastGenOutput>I18nMainWindow.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Languages\I18nMenu.Designer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>I18nMenu.resx</DependentUpon>
+      <LastGenOutput>I18nMenu.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Languages\I18nMessageBox.Designer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>I18nMessageBox.resx</DependentUpon>
+      <LastGenOutput>I18nMessageBox.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Languages\I18nNotification.Designer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>I18nNotification.resx</DependentUpon>
+      <LastGenOutput>I18nNotification.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Languages\I18nServerWindow.Designer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>I18nServerWindow.resx</DependentUpon>
+      <LastGenOutput>I18nServerWindow.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Languages\I18nSystemTray.Designer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>I18nSystemTray.resx</DependentUpon>
+      <LastGenOutput>I18nSystemTray.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

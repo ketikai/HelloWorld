@@ -1,0 +1,200 @@
+﻿<Window x:Class="HelloWorld.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloWorld.Windows"
+        xmlns:model="clr-namespace:HelloWorld.Models;assembly=HelloWorld.Models"
+        xmlns:language="clr-namespace:HelloWorld.Resources.Languages;assembly=HelloWorld.Resources"
+        xmlns:control="clr-namespace:HelloWorld.Controls;assembly=HelloWorld.Controls"
+        xmlns:utils="clr-namespace:HelloWorld.Utils"
+        mc:Ignorable="d"
+        Title="Hello World"
+        Width="350" Height="410"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Topmost="True"
+        d:DataContext="{d:DesignInstance Type=model:Configuration}"
+        >
+    <Window.Resources>
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="0.5"/>
+            <Setter Property="Margin" Value="10,5,10,5"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+        
+        <Style TargetType="{x:Type control:ComboBox}">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="0,0,5,0"/>
+        </Style>
+        
+        <Style TargetType="{x:Type control:TextLine}">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+        
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu x:Name="MenuToolsBar" BorderBrush="Gray" BorderThickness="0.5" Background="Transparent">
+            <MenuItem Header="{Binding Path=File,Source={x:Static language:I18nMenu.Instance}}">
+                <MenuItem Header="{Binding Path=New,Source={x:Static language:I18nMenu.Instance}}"
+                          Click="NewServer"
+                          />
+                <Separator/>
+                <MenuItem Header="{Binding Path=Import,Source={x:Static language:I18nMenu.Instance}}"
+                          Click="ImportServers"
+                          />
+                <MenuItem Header="{Binding Path=Export,Source={x:Static language:I18nMenu.Instance}}"
+                          Click="ExportServers"
+                          />
+                <Separator/>
+                <MenuItem Header="{Binding Path=Exit,Source={x:Static language:I18nMenu.Instance}}"
+                          Click="Exit"
+                          />
+            </MenuItem>
+            <MenuItem Header="{Binding Path=Edit,Source={x:Static language:I18nMenu.Instance}}">
+                <MenuItem Header="{Binding Path=Modify,Source={x:Static language:I18nMenu.Instance}}"
+                          Click="ModifyServer"
+                          />
+                <MenuItem Header="{Binding Path=Delete,Source={x:Static language:I18nMenu.Instance}}"
+                          Click="DeleteServer"
+                          />
+            </MenuItem>
+            <MenuItem Header="{Binding Path=Tools,Source={x:Static language:I18nMenu.Instance}}">
+                <MenuItem Header="{Binding Path=IP_Broadcast, Source={x:Static language:I18nMenu.Instance}}"
+                          IsCheckable="True"
+                          IsChecked="{Binding Path=Tools.IPBroadcast}"
+                          />
+            </MenuItem>
+            <MenuItem Header="{Binding Path=Options,Source={x:Static language:I18nMenu.Instance}}">
+                <control:LocaleMenu Locale="{Binding Path=Locale}" />
+                <Separator/>
+                <MenuItem x:Name="LogsMenuItem" Header="{Binding Path=Logs,Source={x:Static language:I18nMenu.Instance}}" Click="OpenLogsWindow"/>
+                <Separator/>
+                <MenuItem x:Name="ConsoleMenuItem" Header="{Binding Path=Console,Source={x:Static language:I18nMenu.Instance}}" Click="OpenConsole"/>
+                <Separator/>
+                <MenuItem Header="{Binding Path=Preference,Source={x:Static language:I18nMenu.Instance}}" />
+            </MenuItem>
+            <MenuItem Header="{Binding Path=Help,Source={x:Static language:I18nMenu.Instance}}">
+                <MenuItem Header="{Binding Path=Guide,Source={x:Static language:I18nMenu.Instance}}"/>
+                <MenuItem Header="{Binding Path=Source_Code,Source={x:Static language:I18nMenu.Instance}}" />
+                <MenuItem Header="{Binding Path=Copyright,Source={x:Static language:I18nMenu.Instance}}"/>
+            </MenuItem>
+        </Menu>
+
+        <GroupBox x:Name="GroupBoxServerList" Grid.Row="1" Header="{Binding Path=Server_List,Source={x:Static language:I18nMainWindow.Instance}}">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <control:ComboBox x:Name="ComboBoxServerList"
+                              HorizontalAlignment="Stretch"
+                              VerticalContentAlignment="Center"
+                              ItemsSource="{Binding Path=ServerList.List, Mode=OneWay, Converter={StaticResource DictionaryConverter}}"
+                              SelectedContent="{Binding Path=ServerList.Selected, Mode=TwoWay}"
+                              />
+
+                    <Button x:Name="ButtonModifyServer" Content="⛭" Grid.Column="1"
+                            Height="{Binding ActualHeight, ElementName=ComboBoxServerList}"
+                            Width="{Binding ActualHeight, ElementName=ComboBoxServerList}"
+                            Margin="0"
+                            Click="ModifyServer"
+                            />
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox x:Name="GroupBoxGeneralConfiguration" Grid.Row="2"
+                  Header="{Binding Path=General_Settings,Source={x:Static language:I18nMainWindow.Instance}}"
+                  >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" HorizontalAlignment="Stretch">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="{Binding Path=Hostname,Source={x:Static language:I18nMainWindow.Instance}}" />
+
+                        <control:CheckBox x:Name="Auto_Gen" Grid.Column="1"
+                                          Content="{Binding Path=Auto_Gen,Source={x:Static language:I18nMainWindow.Instance}}"
+                                          IsChecked="{Binding Path=Hostname.AutoGen}"
+                                          />
+                    </Grid>
+
+                    <control:TextLine
+                        x:Name="Hostname"
+                        Height="30" MaxLength="36"
+                        TextPattern="^[a-zA-Z0-9_-]{6,}$"
+                        TextInputPattern="[a-zA-Z0-9_-]+"
+                        IsEnabled="{Binding Path=IsUnchecked,ElementName=Auto_Gen}"
+                        Text="{Binding Path=Hostname.Name}"
+                        ShowStatus="True"
+                        />
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" HorizontalAlignment="Stretch">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="{Binding Path=Virtual_Network_Address,Source={x:Static language:I18nMainWindow.Instance}}" />
+                        
+                        <control:CheckBox x:Name="Auto_Assign" Grid.Column="1"
+                                          Content="{Binding Path=Auto_Assign,Source={x:Static language:I18nMainWindow.Instance}}"
+                                          IsChecked="{Binding Path=VirtualIPAddress.AutoAssign}"
+                                          />
+                    </Grid>
+
+                    <control:TextLine
+                        Height="30" MaxLength="45"
+                        TextInputPattern="[a-fA-F0-9:\.]+"
+                        TextValidation="VirtualIPAddressValidator"
+                        IsEnabled="{Binding Path=IsUnchecked,ElementName=Auto_Assign}"
+                        Text="{Binding Path=VirtualIPAddress.Address}"
+                        ShowStatus="True"
+                        />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="ButtonInformation" Grid.Column="0"
+                    IsEnabled="False"
+                    Content="{Binding Path=Information___,Source={x:Static language:I18nMainWindow.Instance}}"
+                    Click="OpenInformationWindow"
+                    />
+            <Button x:Name="ButtonConnect" Grid.Column="1"
+                    Content="{Binding Path=Connect,Source={x:Static language:I18nMainWindow.Instance}}"
+                    Click="Connect"
+                    />
+        </Grid>
+    </Grid>
+</Window>

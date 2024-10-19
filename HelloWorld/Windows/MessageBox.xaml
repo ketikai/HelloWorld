@@ -1,0 +1,27 @@
+﻿<Window x:Class="HelloWorld.Windows.MessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloWorld.Windows"
+        mc:Ignorable="d"
+        MinWidth="250" MinHeight="180"
+        Width="250" Height="180"
+        MaxWidth="550" MaxHeight="450"
+        ResizeMode="NoResize"
+        Topmost="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="AUTO" />
+        </Grid.RowDefinitions>
+
+        <DockPanel x:Name="MessageTextPanel" Grid.Row="0">
+            <TextBlock x:Name="MessageTextBlock" Margin="15" FontSize="14" VerticalAlignment="Center" DockPanel.Dock="Top"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Background="WhiteSmoke">
+            <StackPanel x:Name="ButtonPanel" HorizontalAlignment="Right" Margin="10" Orientation="Horizontal"/>
+        </DockPanel>
+    </Grid>
+</Window>
